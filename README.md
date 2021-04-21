@@ -1,6 +1,6 @@
 ## Abstract
 
-The folllowing program produces an animated bar chart using a text file dataset from a command line argument. The *Bar* data type aggregates related information for use in a bar chart. The *BarChart* data type supports drawing static bar charts to standard draw. *BarChartRacer* uses *BarChart* and *Bar* to produce an animated bar chart. The x-axis of the chart represents the value of each bar and the y-axis represents each bar in ascending order of value from bottom to top. The colors of the bars are assigned according to the category that each bar belongs to. Using *cities.txt* as an example, Beijing and Guangzhou are assigned the same color, because they both belong to the East Asia category, while Cairo is a different color because it belongs to the Middle East category. 
+The folllowing program produces an animated bar chart using a text file dataset from a command line argument and an integer k determining how many bars to display on the canvas. The *Bar* data type aggregates related information for use in a bar chart. The *BarChart* data type supports drawing static bar charts to standard draw. *BarChartRacer* uses *BarChart* and *Bar* to produce an animated bar chart. The x-axis of the chart represents the value of each bar and the y-axis represents each bar in ascending order of value from bottom to top. The colors of the bars are assigned according to the category that each bar belongs to. Using *cities.txt* as an example, Beijing and Guangzhou are assigned the same color, because they both belong to the East Asia category, while Cairo is a different color because it belongs to the Middle East category. 
 
 ## Text File Organization
 
@@ -54,7 +54,9 @@ An IllegalArgumentException is thrown if the argument to **compareTo** is null.
 
 **private ArrayList<Color> colors** - Attribute for the colors of all the bars of the chart stored in an ArrayList.
 
-**private static final Color [] COLORS** - An array of predetermined colors to be chosen from when assigning colors to categories. 
+**private HashSet<Color> usedColors** - Attribute for the set of colors already assigned to a category.
+
+**private static Color randomColorGeneration()** - Returns a Color object with random (r,g,b) values.
 
 **public BarChart(String title, String xAxisLabel, String dataSource)** - Constructor that creates a bar chart with the given title, x-axis label, and data source.
 
@@ -80,6 +82,6 @@ An IllegalArgumentException is thrown in **add(String name, int value, String ca
 
 ## BarChartRacer.java API 
 
-**public static void main (String [] args)** - Main function that takes a String as a command line argument for the dataset text file and uses BarChart and Bar to create an animated bar chart. Audio (SpongeBob music) is looped in the background for entertainment purposes.
+**public static void main (String [] args)** - Main function that takes a String as a command line argument for the dataset text file and an integer k determining how many bars to display on the canvas. Uses BarChart and Bar to create an animated bar chart. Audio (SpongeBob music) is looped in the background for entertainment purposes.
 
 
